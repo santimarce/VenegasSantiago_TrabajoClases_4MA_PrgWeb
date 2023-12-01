@@ -13,9 +13,9 @@ export class CreateTeacherDto {
     @IsNotEmpty()
     fecha_nacimiento: Date;
 
-    @IsString()
+    @IsNumber()
     @IsNotEmpty()
-    especialidad: string;
+    especialidadid: number;
 
     @IsString()
     @IsNotEmpty()

@@ -11,8 +11,8 @@ export class TeacherService {
     @InjectRepository(Teacher)
     private readonly TeacherRepository: Repository<Teacher>) { }
 
-  async create(CreateTeacher: CreateTeacherDto) {
-    const teacher = this.TeacherRepository.create(CreateTeacher);
+  async create(createTeacher: CreateTeacherDto) {
+    const teacher = this.TeacherRepository.create(createTeacher);
     await this.TeacherRepository.save(teacher);
     return teacher;
   }

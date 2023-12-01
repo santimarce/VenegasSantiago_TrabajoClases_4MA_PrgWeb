@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Especialidad } from "src/course/entities/especialidad.entity";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
 @Entity('teacher', { schema: 'public' })
 export class Teacher {
     @PrimaryColumn()
@@ -32,11 +33,6 @@ export class Teacher {
     })
     fecha_nacimiento: Date;
     @Column('varchar', {
-        name: 'especialidad',
-        nullable: false,
-    })
-    especialidad: string;
-    @Column('varchar', {
         name: 'mail',
         nullable: false,
     })
@@ -51,4 +47,6 @@ export class Teacher {
         nullable: false,
     })
     password: string;
+    @ManyToOne(() => Especialidad, (especialidad) => especialidad.teachers)
+    especialidad: Especialidad;
 }
